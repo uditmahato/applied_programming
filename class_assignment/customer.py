@@ -1,6 +1,7 @@
-import time
+from datetime import datetime as time
 # Description: This program is used to calculate the discount and net amount of the customer
-# Function to display heading
+
+#creating empty list to store values
 namel=[]
 addressl=[]
 emaill=[]
@@ -9,21 +10,26 @@ itemqtyl=[]
 totall=[]
 netTotall=[]
 discl=[]
+
 #variable for displaying information
-heading="Sunway College BhatBhateni \nMaitidevi,Kathmandu \nPhone: 01-4444444"
-heading2="Customer Billing System"
-heading3="===================================="
-d="Date: ", time.strftime("%d/%m/%Y")
-date=str(d)
+heading="""Sunway College BhatBhateni 
+Maitidevi,Kathmandu 
+Phone: 01-4444444"""
+heading2="\nCustomer Billing System\n"
+heading3="=================================================================\n"
+heading5="__________________________________________________________________\n"
+d=time.now()
+date=d.strftime("%d/%m/%Y %H:%M:%S")
 
 #function for displaying the information
-def initialDisplay(heading,heading2,heading3,date):
+def initialDisplay(heading,heading2,heading3,date,heading5):
+    print("")
     print(heading3)
-    print(heading)
-    print(heading2)
-    print(heading3)
-    print(date)
-    print(heading3)
+    print("{:>30}".format(heading))
+    print("{:>30}".format(heading2))
+    print("")
+    print("{:>30}Purchase d/t:{:}".format("",date))
+    print("")
     
 #fuction for input and information
 def initialInformation():
@@ -42,16 +48,17 @@ def initialInformation():
             totalPrice=totalPrice+itemprice*itemqty
             totall.append(totalPrice)
             calculation(totall)
-    #forbiling purpose
+        print("")
+    #for condion to either print and create bill or only print or only create bill
     print("=======================================================")
     Action=int(input("Enter 1 to print the bill: \nEnter 2 to Create the bill in text file: \nEnter 3 to both print and create bill : "))
     if Action==1:
-        displayInformation(namel,addressl,emaill,totall,discl,netTotall)
+        displayInformation(namel,addressl,emaill,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
     elif Action==2:
-        writeInformation(namel,addressl,emaill,totall,discl,netTotall,heading,heading2,heading3,date)
+        writeInformation(namel,addressl,emaill,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
     elif Action==3:
-        displayInformation(namel,addressl,emaill,totall,discl,netTotall)
-        writeInformation(namel,addressl,emaill,totall,discl,netTotall,heading,heading2,heading3,date)
+        displayInformation(namel,addressl,emaill,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
+        writeInformation(namel,addressl,emaill,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
     else:
         print("Invalid Input")
 
@@ -76,38 +83,46 @@ def calculation(totall):
         return netAmount,discount
 
 #function for writing the information in text file
-def writeInformation(namel,addressl,emaill,totall,discl,netTotall,heading,heading2,heading3,date):
+def writeInformation(namel,addressl,emaill,totall,discl,netTotall,heading,heading2,heading3,date,heading5):
     for j in range(len(namel)):
         fileName=namel[j]+".txt"
         f=open(fileName,"w")
-        for i in range(len(namel)):
-            f.write("====================================")
+        for i in range(1):
+            f.write(heading3)
             f.write(heading)
             f.write(heading2)
+            f.write("")
+            f.write("{:>30}Purchase d/t:{:} \n".format("",date))
+            f.write("")
+            f.write(f"Customer Name: {namel[j]}\n")
+            f.write(f"Customer Address: {addressl[j]}\n")
+            f.write(f"Customer Email: {emaill[j]}\n")
+            f.write(heading5)
+            f.write("")
+            f.write(f"Total Price: {totall[j]}\n")
+            f.write(f"Discount: {discl[j]}\n")
+            f.write(f"Net Amount: {netTotall[j]}\n")
+            print("")
+            f.write("Thank you for purchasing from us")
             f.write(heading3)
-            f.write(date)
-            f.write(heading3)
-            f.write(f"Customer Name: {namel[i]}")
-            f.write(f"Customer Address: {addressl[i]}")
-            f.write(f"Customer Email: {emaill[i]}")
-            f.write(f"Total Price: {totall[i]}")
-            f.write(f"Discount: {discl[i]}")
-            f.write(f"Net Amount: {netTotall[i]}")
-            f.write("====================================")
         f.close()
 
-def displayInformation(namel,addressl,emaill,totall,discl,netTotall):
-    for i in range(len(discl)):
-        print("====================================")
-        initialDisplay(heading,heading2,heading3,date)
+#function for displaying the information
+def displayInformation(namel,addressl,emaill,totall,discl,netTotall,heading,heading2,heading3,date,heading5):
+    for i in range(len(namel)):
+        initialDisplay(heading,heading2,heading3,date,heading5)
         print(f"Customer Name: {namel[i]}")
         print(f"Customer Address: {addressl[i]}")
         print(f"Customer Email: {emaill[i]}")
+        print(heading5)
+        print("")
         print(f"Total Price: {totall[i]}")
         print(f"Discount: {discl[i]}")
         print(f"Net Amount: {netTotall[i]}")
-        print("====================================")
+        print("")
+        print("Thank you for purchasing from us")
+        print(heading3)
 
-#funrion call
-initialDisplay(heading,heading2,heading3,date)
+#function call
+initialDisplay(heading,heading2,heading3,date,heading5)
 initialInformation()

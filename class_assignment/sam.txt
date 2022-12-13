@@ -1,3 +1,0 @@
-====================================Sunway College BhatBhateni 
-Maitidevi,Kathmandu 
-Phone: 01-4444444Customer Billing System====================================('Date: ', '13/12/2022')====================================Customer Name: samCustomer Address: sampurCustomer Email: sam@gmail.comTotal Price: 1452Discount: 72.60000000000001Net Amount: 1379.4====================================
