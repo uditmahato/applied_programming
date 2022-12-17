@@ -55,20 +55,7 @@ def initialInformation():
             itemqtyl.append(itemqty)
             itemnamel.append(itemname)
             calculation(totall)
-        print("")
-    #for condion to either print and create bill or only print or only create bill
-    print("=======================================================")
-    Action=int(input("Enter 1 to print the bill: \nEnter 2 to Create the bill in text file: \nEnter 3 to both print and create bill : "))
-    if Action==1:
-        displayInformation(namel,addressl,emaill,itemnamel,itempricel,itemqtyl,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
-    elif Action==2:
-        writeInformation(namel,addressl,emaill,itemnamel,itempricel,itemqtyl,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
-    elif Action==3:
-        displayInformation(namel,addressl,emaill,itemnamel,itempricel,itemqtyl,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
-        writeInformation(namel,addressl,emaill,itemnamel,itempricel,itemqtyl,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
-    else:
-        print("Invalid Input")
-
+        
 #function for calculation of discount and Net amount
 def calculation(totall):
     for i in range(len(totall)):
@@ -137,6 +124,21 @@ def displayInformation(namel,addressl,emaill,itemnamel,itempricel,itemqtyl,total
         print("\t\tThank you for purchasing from us\n")
         print(heading3)
 
-#function call
-initialDisplay(heading,heading2,heading3,date,heading5)
-initialInformation()
+def main():
+    initialDisplay(heading,heading2,heading3,date,heading5)
+    initialInformation()
+    #for condion to either print and create bill or only print or only create bill
+    print("=======================================================")
+    Action=int(input("Enter 1 to print the bill: \nEnter 2 to Create the bill in text file: \nEnter 3 to both print and create bill : "))
+    if Action==1:
+        displayInformation(namel,addressl,emaill,itemnamel,itempricel,itemqtyl,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
+    elif Action==2:
+        writeInformation(namel,addressl,emaill,itemnamel,itempricel,itemqtyl,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
+    elif Action==3:
+        displayInformation(namel,addressl,emaill,itemnamel,itempricel,itemqtyl,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
+        writeInformation(namel,addressl,emaill,itemnamel,itempricel,itemqtyl,totall,discl,netTotall,heading,heading2,heading3,date,heading5)
+    else:
+        print("Invalid Input")
+
+        
+main()

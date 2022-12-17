@@ -1,36 +1,56 @@
 
-CustomerName=input("Enter the name of the customer: ")
-CustomerAddress=input("Enter the address of the customer: ")
-CustomerUnit=int(input("Enter the unit of the customer: "))
+Heading="""
+              Sunway Electricity Bill
+                Maitidevi, Kathmandu
+"""
+customerName=[]
+customerName=[]
+customerAddress=[]
+customerUnit=[]
+Discount=[]
+TotalBill=[]
 
-DiscountAmount= 0
-CustomerTotalBill=0
+def customerInformation():
+    n=int(input("Enter the number of customers: "))
+    for i in range(n):
+        customerName.append(input(f"Enter the name of customer [{i+1}]: "))
+        customerAddress.append(input(f"Enter the address of customer [{i+1}]: "))
+        customerUnit.append(int(input(f"Enter the unit of customer [{i+1}]: ")))
+        calculation(customerUnit)
 
-if CustomerUnit<=20:
-    CustomerTotalBill=CustomerUnit*4
-elif CustomerUnit<=50:
-    CustomerTotalBill=20*4+ (CustomerUnit-20)*7.3
-elif CustomerUnit<=150:
-    CustomerTotalBill=20*4+30*7.3+(CustomerUnit-20-50)*8.6
-    DiscountAmount=DiscountAmount+(CustomerUnit-20-50)*0.05
+def calculation(customerUnit):
+    for i in len(customerUnit):
+        DiscountAmount= 0
+        CustomerTotalBill=0
+        if customerUnit[0]<=20:
+            CustomerTotalBill=customerUnit[i]*4
+        elif customerUnit[i]<=50:
+            CustomerTotalBill=20*4+ (customerUnit[i]-20)*7.3
+        elif customerUnit[i]<=150:
+            CustomerTotalBill=20*4+30*7.3+(customerUnit[i]-20-50)*8.6
+            DiscountAmount=DiscountAmount+(customerUnit[i]-20-50)*0.05
 
-elif CustomerUnit<=250:
-    CustomerTotalBill=20*4+30*7.3+80*8.6+(CustomerUnit-20-30-80)*9.5
-    DiscountAmount=DiscountAmount+(CustomerUnit-20-30-80)*0.1
-else:
-    CustomerTotalBill=0*4+30*7.3+80*8.6+100*9.5+(CustomerUnit-20-30-80-100)*11.0
-    DiscountAmount=DiscountAmount+(CustomerUnit-20-30-80-100)*0.15
+        elif customerUnit[i]<=250:
+            CustomerTotalBill=20*4+30*7.3+80*8.6+(customerUnit[i]-20-30-80)*9.5
+            DiscountAmount=DiscountAmount+(customerUnit[i]-20-30-80)*0.1
+        else:
+            CustomerTotalBill=0*4+30*7.3+80*8.6+100*9.5+(customerUnit[i]-20-30-80-100)*11.0
+            DiscountAmount=DiscountAmount+(customerUnit[i]-20-30-80-100)*0.15
+        Discount.append(DiscountAmount)
+        CustomerTotalBill=CustomerTotalBill-DiscountAmount
+        TotalBill.append(CustomerTotalBill)
 
-CustomerTotalBill=CustomerTotalBill-DiscountAmount
-print("*******************************************")
-print("""Sunway Electricity Bill""")
-print("""Maitidevi Kathmandu Nepal""")
-print("________________________________")
+def displayInformation(Heading):
+    for i in len(customerName):
+        print("************************************************")
+        print(Heading)
+        print("___________________________________________\n")
+        print(f"Customer Name: {customerName[i]}\t\tCustomer Address: {customerAddress[i]}")
+        print(f"CUstomer Unit:{customerUnit[i]}\n")
+        print(f"Total Bill:{TotalBill[i]}")
+        print(f"Discount Amount: {Discount[i]}\n")
+        print("Costumer" ,customerName[i]," has consumed ",customerUnit[i],
+        " units of electricity and his billing amount is ",TotalBill[i] ," after getting discount of ",Discount[i])
 
-print("Name of the customer: ",CustomerName,"        ","Address: ",CustomerAddress)
-print("Total Consumed unit: ",CustomerUnit)
-print("Total Bill: ",CustomerTotalBill)
-print("Discount Amount: ",DiscountAmount)
 
-print("Costumer Name " ,CustomerName," has consumed ",CustomerUnit,
-" units of electricity and his billing amount is ",CustomerTotalBill ," after getting discount of ",DiscountAmount)
+
