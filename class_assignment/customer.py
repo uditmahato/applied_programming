@@ -86,7 +86,7 @@ def calculation(totall):
 def writeInformation(namel,addressl,emaill,totall,discl,netTotall,heading,heading2,heading3,date,heading5):
     for j in range(len(namel)):
         fileName=namel[j]+".txt"
-        f=open(fileName,"w")
+        f=open('bill'/fileName,"w")
         for i in range(1):
             f.write(heading3)
             f.write(heading)
@@ -120,7 +120,7 @@ def displayInformation(namel,addressl,emaill,totall,discl,netTotall,heading,head
         print(f"Discount: {discl[i]}")
         print(f"Net Amount: {netTotall[i]}")
         print("")
-        print("Thank you for purchasing from us")
+        print("Thank you for purchasing from us\n")
         print(heading3)
 
 #function call
