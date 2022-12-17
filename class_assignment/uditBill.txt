@@ -1,0 +1,23 @@
+=======================================================================
+
+                     Sunway College BhatBhateni 
+                        Maitidevi,Kathmandu 
+                         Phone: 01-4444444
+			Customer Billing System
+                                                            Billing date:2022-12-17 
+Customer Name: udit
+Customer Address: Tikathali
+Customer Email: udit@Gmail.com
+_______________________________________________________________________
+
+Item Nam	Item Price	Item Quantity	Total Price
+
+copy		50		80		4000
+Color		150		40		6000
+_______________________________________________________________________
+				Total Price: 4000
+				Discount: 200.0
+				Net Amount: 3800.0
+			Thank you for purchasing from us
+
+=======================================================================
