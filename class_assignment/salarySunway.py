@@ -86,9 +86,9 @@ def Display_Staff_Info(staff_name,staff_address,staff_pan,staff_status,slabl,tax
 
         #to write in file and txt file 
         f=open(f"{staff_name[i]}.txt",'w')
-        f.write(heading)
+        f.write(f"{heading}\n")
         f.write(f"Staff Name :{staff_name[i]}\t\t\t\tAddress:{staff_address[i]}\n")
-        f.write(f"PAN No.: {staff_pan[i]}\t\tFY:{fy[i]}\t\tMarried Status:{staff_status[i]}\n\n\n")
+        f.write(f"PAN No.: {staff_pan[i]}\t\tFY:{fy[i]}\t\tMarried Status:{staff_status[i]}\n\n")
         f.write(f"Staff {staff_name[i]} with PAN {staff_pan[i]} fall under {slabl[i]} Tax Slab.\n")
         f.write(f"{staff_name[i]} ({staff_pan[i]}) to pay tax to government is [Rs.]={taxl[i]}\n\n")
         f.close()
