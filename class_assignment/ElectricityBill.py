@@ -16,13 +16,12 @@ def customerInformation():
         customerName.append(input(f"Enter the name of customer [{i+1}]: "))
         customerAddress.append(input(f"Enter the address of customer [{i+1}]: "))
         customerUnit.append(int(input(f"Enter the unit of customer [{i+1}]: ")))
-        calculation(customerUnit)
 
 def calculation(customerUnit):
-    for i in len(customerUnit):
+    for i in range(len(customerUnit)):
         DiscountAmount= 0
         CustomerTotalBill=0
-        if customerUnit[0]<=20:
+        if customerUnit[i]<=20:
             CustomerTotalBill=customerUnit[i]*4
         elif customerUnit[i]<=50:
             CustomerTotalBill=20*4+ (customerUnit[i]-20)*7.3
@@ -40,17 +39,22 @@ def calculation(customerUnit):
         CustomerTotalBill=CustomerTotalBill-DiscountAmount
         TotalBill.append(CustomerTotalBill)
 
-def displayInformation(Heading):
-    for i in len(customerName):
+def displayInformation(Heading,customerName,customerAddress,customerUnit,TotalBill,Discount):
+    for i in range(len(customerName)):
         print("************************************************")
         print(Heading)
-        print("___________________________________________\n")
+        print("_____________________________________________________________________\n")
         print(f"Customer Name: {customerName[i]}\t\tCustomer Address: {customerAddress[i]}")
         print(f"CUstomer Unit:{customerUnit[i]}\n")
         print(f"Total Bill:{TotalBill[i]}")
-        print(f"Discount Amount: {Discount[i]}\n")
+        print(f"Discount Amount: {Discount[i]}\n\n")
         print("Costumer" ,customerName[i]," has consumed ",customerUnit[i],
-        " units of electricity and his billing amount is ",TotalBill[i] ," after getting discount of ",Discount[i])
+        " units of electricity and his billing amount is ",TotalBill[i] ,
+        " after getting discount of ",Discount[i])
+        print("*"*60)
 
+customerInformation()
+calculation(customerUnit)
+displayInformation(Heading,customerName,customerAddress,customerUnit,TotalBill,Discount)
 
 
