@@ -1,0 +1,11 @@
+
+               Sunway College Account Department
+                    Maitidevi ,Kathmandu
+                      Welcome to
+              Salary & Tax Calculate System(STCS)
+Staff Name :Manish Maharjan				Address:Purano Baneshwor
+PAN No.: 38765		FY:2022/23		Married Status:Y
+
+Staff Manish Maharjan with PAN 38765 fall under 10% Tax Slab.
+Manish Maharjan (38765) to pay tax to government is [Rs.]=8000.0
+

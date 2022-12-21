@@ -1,0 +1,11 @@
+
+               Sunway College Account Department
+                    Maitidevi ,Kathmandu
+                      Welcome to
+              Salary & Tax Calculate System(STCS)
+Staff Name :Amar Subedi				Address:Imadol,Lalitpur
+PAN No.: 456776		FY:2022/23		Married Status:Y
+
+Staff Amar Subedi with PAN 456776 fall under 30% Tax Slab.
+Amar Subedi (456776) to pay tax to government is [Rs.]=60000.0
+

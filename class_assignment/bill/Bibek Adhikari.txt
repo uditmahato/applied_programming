@@ -1,0 +1,11 @@
+
+               Sunway College Account Department
+                    Maitidevi ,Kathmandu
+                      Welcome to
+              Salary & Tax Calculate System(STCS)
+Staff Name :Bibek Adhikari				Address:Setopul
+PAN No.: 87654		FY:2022/23		Married Status:N
+
+Staff Bibek Adhikari with PAN 87654 fall under 1% Tax Slab.
+Bibek Adhikari (87654) to pay tax to government is [Rs.]=1800.0
+

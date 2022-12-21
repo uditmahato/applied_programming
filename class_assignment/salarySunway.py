@@ -29,7 +29,7 @@ def StaffInfo():
         monthlyincome=int(input(f"\tEnter Staff per month income [Rs.][{i+1}]:"))
         yearlyincome.append(monthlyincome*12)
         print("\n")
-
+#function to calculate tax
 def Calculate_Tax_Of_Staff(staff_status,yearlyincome):
     def Calculate_Tax_Of_Staff_Married(yearlyincome):
         for i in range(len(yearlyincome)):
@@ -79,13 +79,14 @@ def Calculate_Tax_Of_Staff(staff_status,yearlyincome):
 
 def Display_Staff_Info(staff_name,staff_address,staff_pan,staff_status,slabl,taxl):
     for i in range(len(staff_name)):
+        print(f"{heading}\n")
         print(f"Staff Name : {staff_name[i]}\t\t\t\tAddress:{staff_address[i]}")
         print(f"PAN No.: {staff_pan[i]}\t\tFY:{fy[i]}\t\tMarried Status:{staff_status[i]}\n")
         print(f"Staff {staff_name[i]} with PAN {staff_pan[i]} fall under {slabl[i]} Tax Slab.")
-        print(f"{staff_name[i]} ({staff_pan[i]}) to pay tax to government is [Rs.]={taxl[i]}\n\n")
+        print(f"{staff_name[i]} ({staff_pan[i]}) to pay tax to government is [Rs.]={taxl[i]}\n\n\n")
 
         #to write in file and txt file 
-        f=open(f"{staff_name[i]}.txt",'w')
+        f=open(f"bill/{staff_name[i]}.txt",'w')
         f.write(f"{heading}\n")
         f.write(f"Staff Name :{staff_name[i]}\t\t\t\tAddress:{staff_address[i]}\n")
         f.write(f"PAN No.: {staff_pan[i]}\t\tFY:{fy[i]}\t\tMarried Status:{staff_status[i]}\n\n")
@@ -93,11 +94,12 @@ def Display_Staff_Info(staff_name,staff_address,staff_pan,staff_status,slabl,tax
         f.write(f"{staff_name[i]} ({staff_pan[i]}) to pay tax to government is [Rs.]={taxl[i]}\n\n")
         f.close()
 
-
+# main function to call all other function
 def main():
+    DisplayStaticInfo(heading)
     StaffInfo()
     Calculate_Tax_Of_Staff(staff_status,yearlyincome)
-    DisplayStaticInfo(heading)
     Display_Staff_Info(staff_name,staff_address,staff_pan,staff_status,slabl,taxl)
+
 main()
             
